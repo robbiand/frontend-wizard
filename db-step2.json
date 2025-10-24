@@ -1,0 +1,35 @@
+{
+  "locations": [
+    {
+      "id": "1",
+      "name": "Jakarta"
+    },
+    {
+      "id": "2",
+      "name": "Depok"
+    },
+    {
+      "id": "3",
+      "name": "Surabaya"
+    }
+  ],
+  "details": [
+    {
+      "id": "dfbc",
+      "department": "Funding",
+      "employmentType": "Full-time",
+      "location": "Jakarta",
+      "notes": "jakarta woi",
+      "email": "test@mail.com"
+    },
+    {
+      "id": "6fca",
+      "department": "Lending",
+      "employmentType": "Full-time",
+      "location": "Jakarta",
+      "notes": "Ini adalah karyawan saya",
+      "photo": "data:image/png;base64,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",
+      "email": "arprobi@gmail.com"
+    }
+  ]
+}

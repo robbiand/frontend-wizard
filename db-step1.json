@@ -1,0 +1,34 @@
+{
+  "departments": [
+    {
+      "id": "1",
+      "name": "Lending"
+    },
+    {
+      "id": "2",
+      "name": "Funding"
+    },
+    {
+      "id": "3",
+      "name": "Operations"
+    },
+    {
+      "id": "4",
+      "name": "Engineering"
+    }
+  ],
+  "basicInfo": [
+    {
+      "id": "9820",
+      "fullName": "test",
+      "email": "test@mail.com",
+      "department": "Funding"
+    },
+    {
+      "id": "fe1f",
+      "department": "Lending",
+      "fullName": "Andrian",
+      "email": "arprobi@gmail.com"
+    }
+  ]
+}
