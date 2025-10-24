@@ -9,8 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "serve": "concurrently \"npm run json:step1\" \"npm run json:step2\" \"vite\"",
-    "json:step1": "json-server --watch db-step1.json --port 4001",
-    "json:step2": "json-server --watch db-step2.json --port 4002",
+    "json:step1": "json-server --watch data/db-step1.json --port 4001",
+    "json:step2": "json-server --watch data/db-step2.json --port 4002",
     "test": "vitest --environment jsdom"
   },
   "dependencies": {
@@ -34,6 +34,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
+    "jsdom": "^27.0.1",
     "json-server": "^1.0.0-beta.3",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.16",
