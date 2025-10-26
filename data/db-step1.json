@@ -29,6 +29,18 @@
       "department": "Lending",
       "fullName": "Andrian",
       "email": "arprobi@gmail.com"
+    },
+    {
+      "id": "d215",
+      "department": "Operations",
+      "fullName": "Andrian Pratama",
+      "email": "andrian.tama@mail.com"
+    },
+    {
+      "id": "efca",
+      "department": "Operations",
+      "fullName": "Andrian",
+      "email": "mail@ismail.com"
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { JSX } from 'react'
+import { JSX, useCallback } from 'react'
 import AutoComplete from './AutoComplete'
 
 type Types = {
@@ -11,6 +11,12 @@ type Types = {
 }
 
 const Step1BasicInfo = ({ data, setData }: Types ): JSX.Element => {
+
+  const fetchDepartments = useCallback(async (query: string) => {
+    const mod = await import('../../api/departments')
+    return mod.fetchDepartments(query)
+  }, [])
+
   return (
     <div>
       <div className="mb-4">
@@ -24,10 +30,14 @@ const Step1BasicInfo = ({ data, setData }: Types ): JSX.Element => {
         <input value={data.email||''} onChange={e=>setData({...data, email:e.target.value})}
           className="w-full border rounded px-2 py-1" />
       </div>
+      
 
-      <AutoComplete label="Department" fetchFn={async (q)=> {
-        const mod = await import('../../api/departments'); return mod.fetchDepartments(q)
-      }} value={data.department||''} onChange={(v)=>setData({...data, department:v})} />
+      <AutoComplete
+        label="Department"
+        fetchFn={fetchDepartments}
+        value={data.department || ''}
+        onChange={(v) => setData({ ...data, department: v })}
+      />
     </div>
   )
 }

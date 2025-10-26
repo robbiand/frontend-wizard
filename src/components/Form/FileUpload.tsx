@@ -27,6 +27,7 @@ const FileUpload = ({ onChange }: FileUploadProps) => {
         type="file"
         accept="image/*"
         onChange={ handleChange }
+        className="cursor-pointer border-1 py-1 px-2 rounded-md w-[214px] bg-gray-200"
       />
       { preview && (
         <img src={preview} alt="preview" className="mt-2 w-24 h-24 object-cover rounded" />
