@@ -4,17 +4,38 @@ import Step2Details from '../components/Form/Step2Details'
 import { useDraft } from '../hooks/useDraft'
 import { postBasicInfo, postDetails } from '../api/employees'
 
+interface Basic {
+  department?: string;
+  fullName?: string;
+  email?: string;
+}
+
+interface Details {
+  employeeId?: string;
+}
+
+interface Draft {
+  basic: Basic;
+  details: Details;
+}
+
+
 export default function Wizard() {
   const params = new URLSearchParams(location.search)
   const role = (params.get('role') || 'admin').toLowerCase()
   const isAdmin = role === 'admin'
   const [step, setStep] = useState( isAdmin ? 1 : 2 )
-  const [basic, setBasic] = useState<any>({})
-  const [details, setDetails] = useState<any>({})
+  const [basic, setBasic] = useState<Basic>({ department: '', fullName: '', email: '' })
+  const [details, setDetails] = useState<Details>({ employeeId: '' })
   const [seq] = useState(1)
-  const draft = useDraft(role === 'admin' ? 'admin' : 'ops', { basic, details }, (v)=> {
-    setBasic(v.basic||basic); setDetails(v.details||details)
-  })
+  const draft = useDraft<Draft>(
+    role === 'admin' ? 'admin' : 'ops',
+    { basic, details },
+    (v?: Partial<Draft>) => {
+      setBasic(v?.basic ?? basic);
+      setDetails(v?.details ?? details);
+    }
+  )
 
   const canNext = basic.fullName && basic.email && basic.department
 
@@ -23,7 +44,8 @@ export default function Wizard() {
     await postDetails({...details, email: basic.email})
     alert('All done 🎉')
     draft.clear()
-    setBasic({}); setDetails({})
+    setBasic({})
+    setDetails({})
     setStep(isAdmin?1:2)
   }
 

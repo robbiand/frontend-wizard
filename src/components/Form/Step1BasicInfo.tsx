@@ -3,9 +3,9 @@ import AutoComplete from './AutoComplete'
 
 type Types = {
   data: {
-    fullName: string;
-    email: string;
-    department: string;
+    fullName?: string;
+    email?: string;
+    department?: string;
   },
   setData:(data: object)=>void
 }
@@ -21,13 +21,13 @@ const Step1BasicInfo = ({ data, setData }: Types ): JSX.Element => {
     <div>
       <div className="mb-4">
         <label className="block text-sm font-medium">Full Name</label>
-        <input value={data.fullName||''} onChange={e=>setData({...data, fullName:e.target.value})}
+        <input value={data?.fullName||''} onChange={e=>setData({...data, fullName:e.target.value})}
           className="w-full border rounded px-2 py-1" />
       </div>
 
       <div className="mb-4">
         <label className="block text-sm font-medium">Email</label>
-        <input value={data.email||''} onChange={e=>setData({...data, email:e.target.value})}
+        <input value={data?.email||''} onChange={e=>setData({...data, email:e.target.value})}
           className="w-full border rounded px-2 py-1" />
       </div>
       
@@ -35,7 +35,7 @@ const Step1BasicInfo = ({ data, setData }: Types ): JSX.Element => {
       <AutoComplete
         label="Department"
         fetchFn={fetchDepartments}
-        value={data.department || ''}
+        value={data?.department || ''}
         onChange={(v) => setData({ ...data, department: v })}
       />
     </div>

@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+    depends_on:
+      - json-step1
+      - json-step2
+
+  json-step1:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./data:/app/data
+    command: npx json-server --watch data/db-step1.json --port 4001
+    ports:
+      - "4001:4001"
+
+  json-step2:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./data:/app/data
+    command: npx json-server --watch data/db-step2.json --port 4002
+    ports:
+      - "4002:4002"
+
+  frontend-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - NODE_ENV=production
+    command: [ "nginx", "-g", "daemon off;" ]
