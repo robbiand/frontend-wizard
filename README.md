@@ -1,75 +1,138 @@
-# React + TypeScript + Vite
+# 🚀 React + TypeScript + Vite Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **React** application built with **Vite** for lightning-fast development, **TypeScript** for type safety, and **Vitest** for testing.  
+It also uses **JSON Server** to simulate backend APIs during development.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧩 Tech Stack
 
-## React Compiler
+| Technology | Description |
+|-------------|--------------|
+| ⚡ [Vite](https://vitejs.dev/) | A blazing-fast build tool for modern frontend development |
+| ⚛️ [React](https://react.dev/) | A JavaScript library for building user interfaces |
+| 🧠 [TypeScript](https://www.typescriptlang.org/) | A superset of JavaScript that adds static typing |
+| 🧪 [Vitest](https://vitest.dev/) | A fast unit testing framework for Vite |
+| 🌐 [JSON Server](https://github.com/typicode/json-server) | A mock REST API for simulating backend data |
+| 🧹 [ESLint](https://eslint.org/) | A linter to maintain code consistency and quality |
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## 🛠️ Installation
 
-## Expanding the ESLint configuration
+Make sure you have **Node.js (>=18)** and **npm/pnpm/yarn** installed.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# Clone the repository
+git clone https://github.com/username/repository-name.git
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Navigate to the project folder
+cd repository-name
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Running the Project
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Development Mode
+
+Run the following command to start the React app along with two instances of **JSON Server**:
+
+```bash
+npm run serve
 ```
+
+- Frontend: **http://localhost:5173**
+- Mock API Step 1: **http://localhost:4001**
+- Mock API Step 2: **http://localhost:4002**
+
+---
+
+### Production Build
+
+To create a production-ready build:
+
+```bash
+npm run build
+```
+
+The output will be available in the `dist/` directory.
+
+To preview the production build:
+
+```bash
+npm run preview
+```
+
+---
+
+### Run JSON Server Only
+
+If you only need one of the mock servers running:
+
+```bash
+# Step 1
+npm run json:step1
+
+# Step 2
+npm run json:step2
+```
+
+---
+
+## 🧪 Testing
+
+This project uses **Vitest** with the `jsdom` environment.
+
+Run all tests:
+
+```bash
+npm test
+```
+
+Or enable watch mode:
+
+```bash
+npm run test -- --watch
+```
+
+---
+
+## 🧹 Linting
+
+To ensure code consistency and quality, run:
+
+```bash
+npm run lint
+```
+
+---
+
+## 📁 Project Structure (Example)
+
+```
+.
+├── src/
+│   ├── components/
+│   ├── hooks/
+│   ├── pages/
+│   ├── utils/
+│   ├── App.tsx
+│   └── main.tsx
+├── data/
+│   ├── db-step1.json
+│   └── db-step2.json
+├── public/
+├── tsconfig.json
+├── vite.config.ts
+└── package.json
+```
+
+---
+
+## 🧑‍💻 Author
+
+Made with ❤️ by [**Andrian Robby**](https://github.com/andrianrobby)
