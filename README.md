@@ -116,12 +116,14 @@ npm run lint
 ```
 .
 ├── src/
+│   ├── api/
 │   ├── components/
 │   ├── hooks/
 │   ├── pages/
 │   ├── utils/
 │   ├── App.tsx
 │   └── main.tsx
+│   └── style.css
 ├── data/
 │   ├── db-step1.json
 │   └── db-step2.json
@@ -130,7 +132,6 @@ npm run lint
 ├── vite.config.ts
 └── package.json
 ```
-
 ---
 
 ## 🧑‍💻 Author
